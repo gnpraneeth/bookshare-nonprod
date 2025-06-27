@@ -34,7 +34,8 @@ jobs:
           AWS_REGION: ${{ secrets.AWS_REGION }}
           SOURCE_DIR: dist
 
-      # Optional: Invalidate CloudFront cache
+      # Optional: Invalidate CloudFront cache, added code
+
       - name: 🔄 Invalidate CloudFront cache (optional)
         if: ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID != '' }}
         uses: chetan/invalidate-cloudfront-action@v2
