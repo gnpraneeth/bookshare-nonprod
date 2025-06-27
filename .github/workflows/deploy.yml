@@ -34,14 +34,4 @@ jobs:
           AWS_REGION: ${{ secrets.AWS_REGION }}
           SOURCE_DIR: dist
 
-      # Optional: Invalidate CloudFront cache, added code
 
-      - name: 🔄 Invalidate CloudFront cache (optional)
-        if: ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID != '' }}
-        uses: chetan/invalidate-cloudfront-action@v2
-        with:
-          distribution-id: ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }}
-          paths: '/*'
-        env:
-          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
